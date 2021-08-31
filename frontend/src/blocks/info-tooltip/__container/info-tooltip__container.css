@@ -1,0 +1,15 @@
+.info-tooltip__container {
+  position: relative;
+  width: 430px;
+  height: min-content;
+  margin: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+}
+
+
+
+
