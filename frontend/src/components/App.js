@@ -89,7 +89,7 @@ function App() {
   function handleUpdateUser({name, about}) {
     api.sendUserInfo({name, about})
     .then((res) => {
-      setCurrentUser(res)
+      setCurrentUser(res.data)
       closeAllPopups()
     })
     .catch((err) => {
@@ -100,7 +100,7 @@ function App() {
   function handleUpdateAvatar(avatar) {
     api.setAvatar(avatar)
     .then(res => {
-      setCurrentUser(res)
+      setCurrentUser(res.data)
       closeAllPopups()
     })
     .catch((err) => {
@@ -112,7 +112,7 @@ function App() {
   function handleAddPlaceSubmit(data) {
     return api.sendNewCard(data)
     .then ((newCard) => {
-      setCards([newCard, ...cards]);
+      setCards([newCard.data, ...cards]);
       closeAllPopups();
     })
     .catch((err) => {

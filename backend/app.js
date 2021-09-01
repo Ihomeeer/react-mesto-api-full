@@ -47,6 +47,13 @@ app.use(cors);
 // подключение логгера запросов
 app.use(requestLogger);
 
+// роут для тестирования авто-поднятия сервера после крашей
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // подключение роутов для юзеровв и карточек, а так же роута для страницы 404
 app.post('/signin', celebrate({
   body: Joi.object().keys({
