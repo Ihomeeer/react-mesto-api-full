@@ -204,6 +204,7 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     localStorage.removeItem('token');
+    setCurrentUser({});
     history.push('/sign-in');
   }
 
