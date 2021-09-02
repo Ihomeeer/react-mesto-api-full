@@ -209,18 +209,21 @@ function App() {
 
   // получение информации о пользователе и массива карточек при отрисовке страницы
   React.useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getDefaultCards()])
-    .then(([userInfo, defaultCards]) => {
-      setCurrentUser(userInfo.data);
-      setCards(defaultCards.data);
-    })
-    .catch(error => console.log(error));
+    if (loggedIn) {
+      Promise.all([api.getUserInfo(), api.getDefaultCards()])
+      .then(([userInfo, defaultCards]) => {
+        setCurrentUser(userInfo.data);
+        setCards(defaultCards.data);
+      })
+      .catch(error => console.log(error));
+    }
   }, [loggedIn])
 
 
   // Проверка авторизации при отрисовке страницы
   React.useEffect(() => {
     checkToken();
+    // eslint-disable-next-line
   }, [])
 
 

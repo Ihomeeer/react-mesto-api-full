@@ -14,6 +14,7 @@ function ImagePopup(props) {
     return () => {
         document.removeEventListener('keyup', handleEscClosePopup);
     }
+    // eslint-disable-next-line
   }, [props.card.name]);
 
   return (

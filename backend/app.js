@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 // подключение express
 const app = express();
 
+// dotenv, чтобы файлы env использовать
+require('dotenv').config();
+
 // подключение helmet для защиты рабочей среды
 const helmet = require('helmet');
 

@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://api.ihomeer-mesto.nomoredomains.club';
 
 //Запрос для регистрации пользователя
 export const register = (email, password) => {

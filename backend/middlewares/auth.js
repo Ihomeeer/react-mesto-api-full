@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/Unauthorized');
 
+const { JWT_SECRET } = process.env;
+
 const authCheck = (req, res, next) => {
   // достаём авторизационный заголовок
   const { authorization } = req.headers;
@@ -15,7 +17,7 @@ const authCheck = (req, res, next) => {
 
   try {
     // попытаемся верифицировать токен
-    payload = jwt.verify(token, 'some-secret-key');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     // отправим ошибку, если не получилось
     throw new UnauthorizedError('Необходима авторизация');

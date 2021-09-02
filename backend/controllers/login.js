@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const UnauthorizedError = require('../errors/Unauthorized');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const errorCodes = {
   UNAUTHORIZED: 401,
 };
@@ -22,7 +24,7 @@ const login = (req, res, next) => {
           }
           // аутентификация успешна
           const token = jwt.sign({ _id: user._id },
-            'some-secret-key',
+            NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
             { expiresIn: '7d' });
           res.send({ token });
         })

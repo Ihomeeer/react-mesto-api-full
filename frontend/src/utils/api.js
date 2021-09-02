@@ -113,7 +113,7 @@ class Api extends React.Component {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'https://api.ihomeer-mesto.nomoredomains.club',
 });
 
 export default api;
