@@ -35,4 +35,4 @@
 https://ihomeer-mesto.nomoredomains.rocks
 
 ## Публичный ip-адрес:
-178.154.192.224
+51.250.107.8
